@@ -1,4 +1,4 @@
 
 # ME363_Group10
 
-This is a first repos test!
+Pls use this helpful guide! --> https://rogerdudler.github.io/git-guide/
