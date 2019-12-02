@@ -6,7 +6,7 @@ u = freestream.uInf * cos(freestream.alpha) * ones(size(X,1));
 v = freestream.uInf * sin(freestream.alpha) * ones(size(X,1));
 
 for i = 1:length(panels)
-    disp(i)
+%    disp(i);
     u = u + ((panels(i).sigma/(2*pi))*Integral(X,Y,panels(i),1,0));
     v = v + ((panels(i).sigma/(2*pi))*Integral(X,Y,panels(i),0,1));
 %     for j = 1:length(X)

@@ -16,8 +16,6 @@ close all;
 fileName = 'Geometry_Ellipse_200.csv';
 raw = csvread(fileName);
 
-
-
 clear; load('rawEllipse.mat');
 leng = max(raw(:,1))-min(raw(:,1));
 scal = 0.05/leng;
@@ -89,14 +87,26 @@ cp = 1.0 - (u.^2 + v.^2) / freestream.uInf.^2;
 %% Boundary Layer Approximations 
 
 % WARNING! !!! Assumption for flat plate assumes dU/dX is small !!!
-[delta, tau, drag] = flatPlateDrag(panels); % computes the drag for each panel
+[delta, tau, drag] = flatPlateDrag(panels,freestream); % computes the drag for each panel
 for i = 1:length([panels])
     panels(i).delta = delta(i);
     panels(i).tau = tau(i);
     panels(i).drag = drag;
+
+    if(string({panels(i).loc}')=={'lower'})
+        panels(i).blY = panels(i).yc-(delta(i)+0.00001);
+    else
+        panels(i).blY = panels(i).yc+(delta(i)+0.00001);
+    end
 end
+
 dragTot = sum(drag); % sum all of the panels' drag
 cdTot = (2*dragTot)/(rho*power(uInf,2)*(max(x)-min(x)));
+
+
+% WARNING! !!! Calculates dP/dX for airfoil !!!
+dCpAirfoil = gradient(abs([panels.cp]));
+
 
 %% Plots!
 

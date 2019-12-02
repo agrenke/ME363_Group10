@@ -34,6 +34,8 @@ function [panels] = Panel(xa,ya,xb,yb,rot)
     panels.delta = 0;
     panels.tau = 0;
     panels.drag = 0;
+    panels.blV = 0;
+    panels.blY = 0;
 end
 
 

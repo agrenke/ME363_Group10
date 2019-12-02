@@ -6,9 +6,13 @@
 clear all;
 close all;
 
+%%% GEOMETRY IMPORT %%% 
+% Feed "raw" array x, y columns of shape
+
 %fileName = 'n0012.csv';
 %fileName = 'abde_ellipse001.csv';
 %fileName = 'Geometry_Ellipse.csv';
+
 fileName = 'Geometry_Ellipse_200.csv';
 raw = csvread(fileName);
 
@@ -93,6 +97,11 @@ for i = 1:length([panels])
 end
 dragTot = sum(drag); % sum all of the panels' drag
 cdTot = (2*dragTot)/(rho*power(uInf,2)*(max(x)-min(x)));
+
+
+% WARNING! !!! Calculates dP/dX for airfoil !!!
+
+
 
 %% Plots!
 
