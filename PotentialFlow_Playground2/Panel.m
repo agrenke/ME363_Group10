@@ -31,5 +31,9 @@ function [panels] = Panel(xa,ya,xb,yb,rot)
     tmpRot = ([panels.xc; panels.yc]'*rot);
     panels.xRot = tmpRot(1);
     panels.yRot = tmpRot(2);
+    panels.delta = 0;
+    panels.tau = 0;
+    panels.drag = 0;
 end
+
 

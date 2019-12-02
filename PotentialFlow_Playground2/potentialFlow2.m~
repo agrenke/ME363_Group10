@@ -6,13 +6,9 @@
 clear all;
 close all;
 
-%%% GEOMETRY IMPORT %%% 
-% Feed "raw" array x, y columns of shape
-
 %fileName = 'n0012.csv';
 %fileName = 'abde_ellipse001.csv';
 %fileName = 'Geometry_Ellipse.csv';
-
 fileName = 'Geometry_Ellipse_200.csv';
 raw = csvread(fileName);
 
